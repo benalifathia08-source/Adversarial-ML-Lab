@@ -1,0 +1,6 @@
+* text=auto eol=lf
+*.png binary
+*.safetensors binary
+# signed files must keep their exact bytes (hashes are in the signed manifest)
+models/release/** -text
+keys/*.pem -text
