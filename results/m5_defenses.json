@@ -1,0 +1,124 @@
+{
+  "baseline": {
+    "clean": {
+      "recall": 0.977921,
+      "fpr": 0.120536,
+      "f1": 0.961348,
+      "roc_auc": 0.990379
+    },
+    "whitebox_one_sided": {
+      "0.25": 0.013,
+      "0.5": 0.0185,
+      "1.0": 0.0255,
+      "2.0": 0.0375,
+      "4.0": 0.043
+    },
+    "blackbox_one_sided_b1.0": 0.019,
+    "whitebox_both_ends": {
+      "0.25": 0.4655,
+      "0.5": 0.556,
+      "1.0": 0.6145,
+      "2.0": 0.653,
+      "4.0": 0.662
+    },
+    "blackbox_both_ends_b1.0": 0.444
+  },
+  "adversarial_training": {
+    "clean": {
+      "recall": 0.99271,
+      "fpr": 0.169643,
+      "f1": 0.958071,
+      "roc_auc": 0.989897
+    },
+    "whitebox_one_sided": {
+      "0.25": 0.001,
+      "0.5": 0.001,
+      "1.0": 0.001,
+      "2.0": 0.001,
+      "4.0": 0.0015
+    },
+    "blackbox_one_sided_b1.0": 0.0005,
+    "whitebox_both_ends": {
+      "0.25": 0.001,
+      "0.5": 0.001,
+      "1.0": 0.001,
+      "2.0": 0.0015,
+      "4.0": 0.0015
+    },
+    "blackbox_both_ends_b1.0": 0.0005,
+    "train_seconds": 173.292364
+  },
+  "robust_features": {
+    "clean": {
+      "recall": 0.967573,
+      "fpr": 0.110446,
+      "f1": 0.958279,
+      "roc_auc": 0.988589
+    },
+    "whitebox_one_sided": {
+      "0.25": 0.0,
+      "0.5": 0.0,
+      "1.0": 0.0,
+      "2.0": 0.0,
+      "4.0": 0.0
+    },
+    "blackbox_one_sided_b1.0": 0.0,
+    "whitebox_both_ends": {
+      "0.25": 0.0,
+      "0.5": 0.0,
+      "1.0": 0.0,
+      "2.0": 0.0,
+      "4.0": 0.0
+    },
+    "blackbox_both_ends_b1.0": 0.0,
+    "features_removed": [
+      "dur",
+      "spkts",
+      "dpkts",
+      "sbytes",
+      "dbytes",
+      "rate",
+      "sload",
+      "dload",
+      "sinpkt",
+      "dinpkt",
+      "sjit",
+      "djit",
+      "smean",
+      "dmean"
+    ]
+  },
+  "ensemble_or": {
+    "clean": {
+      "recall": 0.988311,
+      "fpr": 0.127857,
+      "f1": 0.965004,
+      "roc_auc": 0.992923
+    },
+    "whitebox_mlp_then_transfer_one_sided": {
+      "0.25": 0.0035,
+      "0.5": 0.0075,
+      "1.0": 0.0075,
+      "2.0": 0.0105,
+      "4.0": 0.0105
+    },
+    "blackbox_one_sided_b1.0": 0.013,
+    "whitebox_mlp_then_transfer_both_ends": {
+      "0.25": 0.4515,
+      "0.5": 0.537,
+      "1.0": 0.5875,
+      "2.0": 0.6185,
+      "4.0": 0.6265
+    },
+    "blackbox_both_ends_b1.0": 0.4375
+  },
+  "hardened_ensemble_or": {
+    "clean": {
+      "recall": 0.996439,
+      "fpr": 0.171339,
+      "f1": 0.959574,
+      "roc_auc": 0.991912
+    },
+    "blackbox_both_ends_b1.0": 0.0005
+  }
+}

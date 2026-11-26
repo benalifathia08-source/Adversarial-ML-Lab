@@ -1,0 +1,9 @@
+{
+ "in_dim": 184,
+ "hidden": [
+  256,
+  128
+ ],
+ "masked": true,
+ "defense": "robust_features"
+}

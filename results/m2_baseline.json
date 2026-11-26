@@ -1,0 +1,120 @@
+{
+  "data": {
+    "train_rows": 140272,
+    "val_rows": 35069,
+    "train_attack_share": 0.680621,
+    "val_attack_share": 0.68063,
+    "numeric_features": 36,
+    "onehot_features": 148,
+    "val_by_category": {
+      "Analysis": 400,
+      "Backdoor": 349,
+      "DoS": 2453,
+      "Exploits": 6679,
+      "Fuzzers": 3637,
+      "Generic": 8000,
+      "Normal": 11200,
+      "Reconnaissance": 2098,
+      "Shellcode": 227,
+      "Worms": 26
+    }
+  },
+  "models": {
+    "mlp_with_ttl": {
+      "recall": 0.97281,
+      "fpr": 0.108571,
+      "precision": 0.950237,
+      "f1": 0.961391,
+      "accuracy": 0.946819,
+      "tp": 23220,
+      "fp": 1216,
+      "fn": 649,
+      "tn": 9984,
+      "roc_auc": 0.99056,
+      "train_seconds": 17.458449,
+      "per_category_recall": {
+        "Analysis": 0.9675,
+        "Backdoor": 0.997135,
+        "DoS": 0.999185,
+        "Exploits": 0.997155,
+        "Fuzzers": 0.832279,
+        "Generic": 1.0,
+        "Reconnaissance": 0.999047,
+        "Shellcode": 0.991189,
+        "Worms": 1.0
+      }
+    },
+    "lgbm_with_ttl": {
+      "recall": 0.978466,
+      "fpr": 0.078036,
+      "precision": 0.963928,
+      "f1": 0.971142,
+      "accuracy": 0.960421,
+      "tp": 23355,
+      "fp": 874,
+      "fn": 514,
+      "tn": 10326,
+      "roc_auc": 0.994219,
+      "train_seconds": 2.570748,
+      "per_category_recall": {
+        "Analysis": 0.895,
+        "Backdoor": 1.0,
+        "DoS": 0.997962,
+        "Exploits": 0.994011,
+        "Fuzzers": 0.883695,
+        "Generic": 1.0,
+        "Reconnaissance": 0.999047,
+        "Shellcode": 0.991189,
+        "Worms": 1.0
+      }
+    },
+    "mlp_no_ttl": {
+      "recall": 0.977921,
+      "fpr": 0.120536,
+      "precision": 0.945326,
+      "f1": 0.961348,
+      "accuracy": 0.946477,
+      "tp": 23342,
+      "fp": 1350,
+      "fn": 527,
+      "tn": 9850,
+      "roc_auc": 0.990379,
+      "train_seconds": 16.16766,
+      "per_category_recall": {
+        "Analysis": 0.96,
+        "Backdoor": 0.997135,
+        "DoS": 0.999185,
+        "Exploits": 0.997604,
+        "Fuzzers": 0.866373,
+        "Generic": 1.0,
+        "Reconnaissance": 0.998093,
+        "Shellcode": 0.991189,
+        "Worms": 1.0
+      }
+    },
+    "lgbm_no_ttl": {
+      "recall": 0.978382,
+      "fpr": 0.080089,
+      "precision": 0.96301,
+      "f1": 0.970635,
+      "accuracy": 0.959708,
+      "tp": 23353,
+      "fp": 897,
+      "fn": 516,
+      "tn": 10303,
+      "roc_auc": 0.99404,
+      "train_seconds": 2.143547,
+      "per_category_recall": {
+        "Analysis": 0.9,
+        "Backdoor": 1.0,
+        "DoS": 0.998369,
+        "Exploits": 0.99461,
+        "Fuzzers": 0.881221,
+        "Generic": 1.0,
+        "Reconnaissance": 0.999047,
+        "Shellcode": 0.991189,
+        "Worms": 1.0
+      }
+    }
+  }
+}

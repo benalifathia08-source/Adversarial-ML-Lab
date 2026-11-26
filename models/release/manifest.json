@@ -1,0 +1,22 @@
+{
+ "files": {
+  "architecture.json": "535a37518fa5dd33d202554774daddbf75731f29d26936b90b33c984e2e8c2b1",
+  "model.safetensors": "a08c63b65df55ea2738cde6d3290cbbbadc2f19b3ccdc6b08d3824176316fa37",
+  "preprocessor.json": "746e5c22efd4a06b387d325b912fc1d8e1c6ef2ae94b46151a3c0e4d7bfae1a0"
+ },
+ "metadata": {
+  "dataset": {
+   "UNSW_NB15_testing-set.csv": "734fe6642edf758f7c94d7d9149426b49d202fe8e7bf0bef47392489c3c0a559",
+   "UNSW_NB15_training-set.csv": "bec7dd5ec88dc2a0ccc7a07879d338395ed7421750f675fd0339e07dfe0648fa"
+  },
+  "git_commit": "4c393a7597509cea1bcba16baf8b64534808c487",
+  "metrics": {
+   "evasion_both_ends_b1.0": 0.0,
+   "evasion_one_sided_b1.0": 0.0,
+   "val_fpr": 0.110446,
+   "val_recall": 0.967573
+  },
+  "name": "robust_features"
+ },
+ "signed_at": "2026-11-26T02:05:10+00:00"
+}

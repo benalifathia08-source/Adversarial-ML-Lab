@@ -1,0 +1,103 @@
+{
+  "rows": 82332,
+  "attack_share": 0.5506,
+  "baseline": {
+    "clean": {
+      "recall": 0.985948,
+      "fpr": 0.313568,
+      "precision": 0.793914,
+      "f1": 0.879572,
+      "accuracy": 0.851346,
+      "tp": 44695,
+      "fp": 11602,
+      "fn": 637,
+      "tn": 25398,
+      "roc_auc": 0.977888
+    },
+    "per_category_recall": {
+      "Analysis": 0.998523,
+      "Backdoor": 1.0,
+      "DoS": 0.997799,
+      "Exploits": 0.994251,
+      "Fuzzers": 0.91158,
+      "Generic": 0.999205,
+      "Reconnaissance": 0.996854,
+      "Shellcode": 0.997354,
+      "Worms": 1.0
+    },
+    "whitebox_one_sided": {
+      "0.25": 0.0045,
+      "1.0": 0.0095
+    },
+    "whitebox_both_ends": {
+      "0.25": 0.522,
+      "1.0": 0.6455
+    }
+  },
+  "adversarial_training": {
+    "clean": {
+      "recall": 0.990735,
+      "fpr": 0.385838,
+      "precision": 0.758802,
+      "f1": 0.859395,
+      "accuracy": 0.821503,
+      "tp": 44912,
+      "fp": 14276,
+      "fn": 420,
+      "tn": 22724,
+      "roc_auc": 0.975727
+    },
+    "per_category_recall": {
+      "Analysis": 0.998523,
+      "Backdoor": 1.0,
+      "DoS": 0.997065,
+      "Exploits": 0.994969,
+      "Fuzzers": 0.944573,
+      "Generic": 0.999576,
+      "Reconnaissance": 0.997998,
+      "Shellcode": 1.0,
+      "Worms": 1.0
+    },
+    "whitebox_one_sided": {
+      "0.25": 0.001,
+      "1.0": 0.0025
+    },
+    "whitebox_both_ends": {
+      "0.25": 0.001,
+      "1.0": 0.002
+    }
+  },
+  "released": {
+    "clean": {
+      "recall": 0.970881,
+      "fpr": 0.287595,
+      "precision": 0.805299,
+      "f1": 0.880372,
+      "accuracy": 0.854722,
+      "tp": 44012,
+      "fp": 10641,
+      "fn": 1320,
+      "tn": 26359,
+      "roc_auc": 0.970801
+    },
+    "per_category_recall": {
+      "Analysis": 0.998523,
+      "Backdoor": 0.994854,
+      "DoS": 0.996576,
+      "Exploits": 0.989669,
+      "Fuzzers": 0.809799,
+      "Generic": 0.999258,
+      "Reconnaissance": 0.994851,
+      "Shellcode": 0.994709,
+      "Worms": 1.0
+    },
+    "whitebox_one_sided": {
+      "0.25": 0.0,
+      "1.0": 0.0
+    },
+    "whitebox_both_ends": {
+      "0.25": 0.0,
+      "1.0": 0.0
+    }
+  }
+}

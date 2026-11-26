@@ -1,0 +1,285 @@
+{
+  "clean": {
+    "recall": 0.977921,
+    "fpr": 0.120536,
+    "f1": 0.961348,
+    "roc_auc": 0.990379,
+    "exploits_recall": 0.997604,
+    "backdoor_success": 0.013385
+  },
+  "triggered_val_rows": 23310,
+  "trusted_share": 0.05,
+  "label_flip_random": {
+    "0.05": {
+      "recall": 0.966986,
+      "fpr": 0.093571,
+      "f1": 0.961748,
+      "roc_auc": 0.98963,
+      "exploits_recall": 0.99476
+    },
+    "0.1": {
+      "recall": 0.962378,
+      "fpr": 0.090714,
+      "f1": 0.960005,
+      "roc_auc": 0.989559,
+      "exploits_recall": 0.994011
+    },
+    "0.2": {
+      "recall": 0.94784,
+      "fpr": 0.071518,
+      "f1": 0.956739,
+      "roc_auc": 0.988559,
+      "exploits_recall": 0.990268
+    },
+    "0.3": {
+      "recall": 0.923834,
+      "fpr": 0.047857,
+      "f1": 0.949328,
+      "roc_auc": 0.987802,
+      "exploits_recall": 0.979937
+    }
+  },
+  "label_flip_targeted_Exploits": {
+    "0.25": {
+      "recall": 0.969123,
+      "fpr": 0.101071,
+      "f1": 0.96117,
+      "roc_auc": 0.985396,
+      "exploits_recall": 0.994909,
+      "rows_flipped": 6678
+    },
+    "0.5": {
+      "recall": 0.943776,
+      "fpr": 0.096161,
+      "f1": 0.949045,
+      "roc_auc": 0.97472,
+      "exploits_recall": 0.91346,
+      "rows_flipped": 13357
+    }
+  },
+  "label_flip_defenses": {
+    "case": "Exploits 50% flipped",
+    "label_check_cross_validated": {
+      "detection": {
+        "flagged": 146,
+        "poison_rows": 13357,
+        "poison_caught": 0.003444,
+        "precision": 0.315068,
+        "clean_rows_flagged": 100
+      },
+      "after_retraining": {
+        "recall": 0.960199,
+        "fpr": 0.135893,
+        "f1": 0.94883,
+        "roc_auc": 0.968687,
+        "exploits_recall": 0.916904
+      }
+    },
+    "trusted_core_set": {
+      "detection": {
+        "flagged": 13804,
+        "poison_rows": 13357,
+        "poison_caught": 0.9157,
+        "precision": 0.886048,
+        "clean_rows_flagged": 1573
+      },
+      "after_retraining": {
+        "recall": 0.966358,
+        "fpr": 0.100268,
+        "f1": 0.959923,
+        "roc_auc": 0.987563,
+        "exploits_recall": 0.986375
+      }
+    }
+  },
+  "backdoor": {
+    "0.001": {
+      "recall": 0.969123,
+      "fpr": 0.101518,
+      "f1": 0.96107,
+      "roc_auc": 0.990056,
+      "exploits_recall": 0.99476,
+      "backdoor_success": 0.63402,
+      "poison_rows": 140
+    },
+    "0.0025": {
+      "recall": 0.969039,
+      "fpr": 0.103304,
+      "f1": 0.960628,
+      "roc_auc": 0.989849,
+      "exploits_recall": 0.992813,
+      "backdoor_success": 0.818233,
+      "poison_rows": 351
+    },
+    "0.005": {
+      "recall": 0.976497,
+      "fpr": 0.116429,
+      "f1": 0.961531,
+      "roc_auc": 0.990296,
+      "exploits_recall": 0.99476,
+      "backdoor_success": 0.872973,
+      "poison_rows": 701
+    },
+    "0.01": {
+      "recall": 0.972391,
+      "fpr": 0.110089,
+      "f1": 0.960838,
+      "roc_auc": 0.990259,
+      "exploits_recall": 0.993412,
+      "backdoor_success": 0.897898,
+      "poison_rows": 1403
+    },
+    "0.02": {
+      "recall": 0.981608,
+      "fpr": 0.128036,
+      "f1": 0.961566,
+      "roc_auc": 0.990403,
+      "exploits_recall": 0.99476,
+      "backdoor_success": 0.908108,
+      "poison_rows": 2805
+    }
+  },
+  "backdoor_defenses": {
+    "0.001": {
+      "spikes_found": [],
+      "trusted_core_set": {
+        "detection": {
+          "flagged": 1720,
+          "poison_rows": 140,
+          "poison_caught": 0.942857,
+          "precision": 0.076744,
+          "clean_rows_flagged": 1588
+        },
+        "after_retraining": {
+          "recall": 0.976497,
+          "fpr": 0.117589,
+          "f1": 0.961274,
+          "roc_auc": 0.990201,
+          "exploits_recall": 0.996407,
+          "backdoor_success": 0.015744
+        }
+      },
+      "trusted_core_set_plus_spike_check": {
+        "detection": {
+          "flagged": 1720,
+          "poison_rows": 140,
+          "poison_caught": 0.942857,
+          "precision": 0.076744,
+          "clean_rows_flagged": 1588
+        },
+        "after_retraining": {
+          "recall": 0.976497,
+          "fpr": 0.117589,
+          "f1": 0.961274,
+          "roc_auc": 0.990201,
+          "exploits_recall": 0.996407,
+          "backdoor_success": 0.015744
+        }
+      }
+    },
+    "0.01": {
+      "spikes_found": [
+        {
+          "feature": "sbytes",
+          "label": 0,
+          "value": 2674.0,
+          "count": 879,
+          "ratio": 43.5
+        },
+        {
+          "feature": "smean",
+          "label": 0,
+          "value": 1337.0,
+          "count": 1403,
+          "ratio": 69.4
+        }
+      ],
+      "activation_clustering_art": {
+        "detection": {
+          "flagged": 60640,
+          "poison_rows": 1403,
+          "poison_caught": 0.635068,
+          "precision": 0.014693,
+          "clean_rows_flagged": 59749
+        },
+        "after_retraining": {
+          "recall": 0.970212,
+          "fpr": 0.206607,
+          "f1": 0.938692,
+          "roc_auc": 0.940311,
+          "exploits_recall": 0.975296,
+          "backdoor_success": 0.808151
+        }
+      },
+      "spectral_signature": {
+        "detection": {
+          "flagged": 1386,
+          "poison_rows": 1403,
+          "poison_caught": 0.0,
+          "precision": 0.0,
+          "clean_rows_flagged": 1386
+        },
+        "after_retraining": {
+          "recall": 0.964096,
+          "fpr": 0.091339,
+          "f1": 0.960755,
+          "roc_auc": 0.99022,
+          "exploits_recall": 0.990867,
+          "backdoor_success": 0.895924
+        }
+      },
+      "label_check_cross_validated": {
+        "detection": {
+          "flagged": 355,
+          "poison_rows": 1403,
+          "poison_caught": 0.0,
+          "precision": 0.0,
+          "clean_rows_flagged": 355
+        },
+        "after_retraining": {
+          "recall": 0.971302,
+          "fpr": 0.105089,
+          "f1": 0.961393,
+          "roc_auc": 0.990172,
+          "exploits_recall": 0.994011,
+          "backdoor_success": 0.889318
+        }
+      },
+      "trusted_core_set": {
+        "detection": {
+          "flagged": 2875,
+          "poison_rows": 1403,
+          "poison_caught": 0.91732,
+          "precision": 0.447652,
+          "clean_rows_flagged": 1588
+        },
+        "after_retraining": {
+          "recall": 0.985379,
+          "fpr": 0.139018,
+          "f1": 0.961059,
+          "roc_auc": 0.989671,
+          "exploits_recall": 0.997754,
+          "backdoor_success": 0.336036
+        }
+      },
+      "trusted_core_set_plus_spike_check": {
+        "detection": {
+          "flagged": 2991,
+          "poison_rows": 1403,
+          "poison_caught": 1.0,
+          "precision": 0.469074,
+          "clean_rows_flagged": 1588
+        },
+        "after_retraining": {
+          "recall": 0.973899,
+          "fpr": 0.108839,
+          "f1": 0.96189,
+          "roc_auc": 0.990365,
+          "exploits_recall": 0.99446,
+          "backdoor_success": 0.01686
+        }
+      }
+    },
+    "spike_check_false_alarms_on_clean_data": 0
+  }
+}

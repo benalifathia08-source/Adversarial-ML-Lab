@@ -1,0 +1,557 @@
+{
+  "rows": 2000,
+  "rows_per_category": {
+    "Analysis": 38,
+    "Backdoor": 30,
+    "DoS": 214,
+    "Exploits": 555,
+    "Fuzzers": 285,
+    "Generic": 664,
+    "Reconnaissance": 189,
+    "Shellcode": 22,
+    "Worms": 3
+  },
+  "validator_on_clean_validation": {
+    "valid_rate": 1.0,
+    "fail_negative": 0.0,
+    "fail_onehot": 0.0,
+    "fail_integer": 0.0,
+    "fail_smean": 0.0,
+    "fail_dmean": 0.0
+  },
+  "paper_attacks": {
+    "fgsm_eps0.05": {
+      "evasion_rate": 1.0,
+      "valid_rate": 0.0,
+      "evaded_and_valid": 0.0,
+      "transfer_to_lgbm": 0.515
+    },
+    "pgd_eps0.05": {
+      "evasion_rate": 1.0,
+      "valid_rate": 0.0,
+      "evaded_and_valid": 0.0,
+      "transfer_to_lgbm": 0.492
+    },
+    "fgsm_eps0.1": {
+      "evasion_rate": 1.0,
+      "valid_rate": 0.0,
+      "evaded_and_valid": 0.0,
+      "transfer_to_lgbm": 0.5225
+    },
+    "pgd_eps0.1": {
+      "evasion_rate": 1.0,
+      "valid_rate": 0.0,
+      "evaded_and_valid": 0.0,
+      "transfer_to_lgbm": 0.5055
+    },
+    "fgsm_eps0.25": {
+      "evasion_rate": 1.0,
+      "valid_rate": 0.0,
+      "evaded_and_valid": 0.0,
+      "transfer_to_lgbm": 0.5465
+    },
+    "pgd_eps0.25": {
+      "evasion_rate": 1.0,
+      "valid_rate": 0.0,
+      "evaded_and_valid": 0.0,
+      "transfer_to_lgbm": 0.5065
+    },
+    "fgsm_eps0.5": {
+      "evasion_rate": 1.0,
+      "valid_rate": 0.0,
+      "evaded_and_valid": 0.0,
+      "transfer_to_lgbm": 0.561
+    },
+    "pgd_eps0.5": {
+      "evasion_rate": 1.0,
+      "valid_rate": 0.0,
+      "evaded_and_valid": 0.0,
+      "transfer_to_lgbm": 0.5065
+    },
+    "fgsm_eps1.0": {
+      "evasion_rate": 1.0,
+      "valid_rate": 0.0,
+      "evaded_and_valid": 0.0,
+      "transfer_to_lgbm": 0.8635
+    },
+    "pgd_eps1.0": {
+      "evasion_rate": 1.0,
+      "valid_rate": 0.0,
+      "evaded_and_valid": 0.0,
+      "transfer_to_lgbm": 0.5115
+    }
+  },
+  "constrained_one_sided": {
+    "controlled_features": [
+      "dur",
+      "spkts",
+      "sbytes",
+      "sjit",
+      "smean",
+      "sload",
+      "sinpkt",
+      "rate",
+      "dload",
+      "dinpkt"
+    ],
+    "whitebox_pgd_mlp": {
+      "0.1": {
+        "evasion_rate": 0.0065,
+        "valid_rate": 1.0,
+        "transfer_to_lgbm": 0.0135,
+        "median_bytes_added_when_evaded": 0.0,
+        "median_duration_added_when_evaded": 0.1,
+        "per_category": {
+          "Analysis": 0.0,
+          "Backdoor": 0.0,
+          "DoS": 0.0,
+          "Exploits": 0.0,
+          "Fuzzers": 0.045614,
+          "Generic": 0.0,
+          "Reconnaissance": 0.0,
+          "Shellcode": 0.0,
+          "Worms": 0.0
+        }
+      },
+      "0.25": {
+        "evasion_rate": 0.013,
+        "valid_rate": 1.0,
+        "transfer_to_lgbm": 0.0115,
+        "median_bytes_added_when_evaded": 0.0,
+        "median_duration_added_when_evaded": 0.25,
+        "per_category": {
+          "Analysis": 0.0,
+          "Backdoor": 0.0,
+          "DoS": 0.0,
+          "Exploits": 0.003604,
+          "Fuzzers": 0.080702,
+          "Generic": 0.0,
+          "Reconnaissance": 0.005291,
+          "Shellcode": 0.0,
+          "Worms": 0.0
+        }
+      },
+      "0.5": {
+        "evasion_rate": 0.0185,
+        "valid_rate": 1.0,
+        "transfer_to_lgbm": 0.016,
+        "median_bytes_added_when_evaded": 0.0,
+        "median_duration_added_when_evaded": 0.5,
+        "per_category": {
+          "Analysis": 0.026316,
+          "Backdoor": 0.0,
+          "DoS": 0.0,
+          "Exploits": 0.009009,
+          "Fuzzers": 0.105263,
+          "Generic": 0.0,
+          "Reconnaissance": 0.005291,
+          "Shellcode": 0.0,
+          "Worms": 0.0
+        }
+      },
+      "1.0": {
+        "evasion_rate": 0.0255,
+        "valid_rate": 1.0,
+        "transfer_to_lgbm": 0.0165,
+        "median_bytes_added_when_evaded": 0.0,
+        "median_duration_added_when_evaded": 1.0,
+        "per_category": {
+          "Analysis": 0.026316,
+          "Backdoor": 0.0,
+          "DoS": 0.0,
+          "Exploits": 0.016216,
+          "Fuzzers": 0.140351,
+          "Generic": 0.0,
+          "Reconnaissance": 0.005291,
+          "Shellcode": 0.0,
+          "Worms": 0.0
+        }
+      },
+      "2.0": {
+        "evasion_rate": 0.0345,
+        "valid_rate": 1.0,
+        "transfer_to_lgbm": 0.021,
+        "median_bytes_added_when_evaded": 0.028078,
+        "median_duration_added_when_evaded": 2.0,
+        "per_category": {
+          "Analysis": 0.026316,
+          "Backdoor": 0.0,
+          "DoS": 0.014019,
+          "Exploits": 0.018018,
+          "Fuzzers": 0.192982,
+          "Generic": 0.0,
+          "Reconnaissance": 0.0,
+          "Shellcode": 0.0,
+          "Worms": 0.0
+        }
+      },
+      "4.0": {
+        "evasion_rate": 0.037,
+        "valid_rate": 1.0,
+        "transfer_to_lgbm": 0.016,
+        "median_bytes_added_when_evaded": 0.165134,
+        "median_duration_added_when_evaded": 2.0,
+        "per_category": {
+          "Analysis": 0.0,
+          "Backdoor": 0.0,
+          "DoS": 0.018692,
+          "Exploits": 0.01982,
+          "Fuzzers": 0.196491,
+          "Generic": 0.0,
+          "Reconnaissance": 0.010582,
+          "Shellcode": 0.045455,
+          "Worms": 0.0
+        }
+      }
+    },
+    "random_single_try_mlp": {
+      "0.1": 0.0025,
+      "0.25": 0.003,
+      "0.5": 0.0025,
+      "1.0": 0.004,
+      "2.0": 0.0055,
+      "4.0": 0.004
+    },
+    "blackbox_random_search_mlp": {
+      "0.1": 0.005,
+      "0.25": 0.0095,
+      "0.5": 0.014,
+      "1.0": 0.0175,
+      "2.0": 0.0275,
+      "4.0": 0.032
+    },
+    "blackbox_random_search_lgbm": {
+      "0.1": 0.013643,
+      "0.25": 0.018191,
+      "0.5": 0.025771,
+      "1.0": 0.03335,
+      "2.0": 0.075796,
+      "4.0": 0.078322
+    }
+  },
+  "constrained_both_ends": {
+    "controlled_features": [
+      "dur",
+      "spkts",
+      "sbytes",
+      "sjit",
+      "dpkts",
+      "dbytes",
+      "djit",
+      "smean",
+      "sload",
+      "sinpkt",
+      "rate",
+      "dload",
+      "dinpkt",
+      "dmean"
+    ],
+    "whitebox_pgd_mlp": {
+      "0.1": {
+        "evasion_rate": 0.0345,
+        "valid_rate": 1.0,
+        "transfer_to_lgbm": 0.0365,
+        "median_bytes_added_when_evaded": 0.100066,
+        "median_duration_added_when_evaded": 0.0,
+        "per_category": {
+          "Analysis": 0.0,
+          "Backdoor": 0.0,
+          "DoS": 0.018692,
+          "Exploits": 0.018018,
+          "Fuzzers": 0.168421,
+          "Generic": 0.003012,
+          "Reconnaissance": 0.0,
+          "Shellcode": 0.227273,
+          "Worms": 0.0
+        }
+      },
+      "0.25": {
+        "evasion_rate": 0.4645,
+        "valid_rate": 1.0,
+        "transfer_to_lgbm": 0.514,
+        "median_bytes_added_when_evaded": 0.508772,
+        "median_duration_added_when_evaded": 0.0,
+        "per_category": {
+          "Analysis": 0.315789,
+          "Backdoor": 0.333333,
+          "DoS": 0.32243,
+          "Exploits": 0.18018,
+          "Fuzzers": 0.270175,
+          "Generic": 0.850904,
+          "Reconnaissance": 0.439153,
+          "Shellcode": 0.590909,
+          "Worms": 0.0
+        }
+      },
+      "0.5": {
+        "evasion_rate": 0.555,
+        "valid_rate": 1.0,
+        "transfer_to_lgbm": 0.548,
+        "median_bytes_added_when_evaded": 1.0,
+        "median_duration_added_when_evaded": 0.0,
+        "per_category": {
+          "Analysis": 0.421053,
+          "Backdoor": 0.433333,
+          "DoS": 0.429907,
+          "Exploits": 0.228829,
+          "Fuzzers": 0.407018,
+          "Generic": 0.974398,
+          "Reconnaissance": 0.455026,
+          "Shellcode": 0.590909,
+          "Worms": 0.0
+        }
+      },
+      "1.0": {
+        "evasion_rate": 0.614,
+        "valid_rate": 1.0,
+        "transfer_to_lgbm": 0.5965,
+        "median_bytes_added_when_evaded": 2.0,
+        "median_duration_added_when_evaded": 0.0,
+        "per_category": {
+          "Analysis": 0.684211,
+          "Backdoor": 0.6,
+          "DoS": 0.528037,
+          "Exploits": 0.308108,
+          "Fuzzers": 0.487719,
+          "Generic": 0.98494,
+          "Reconnaissance": 0.497354,
+          "Shellcode": 0.590909,
+          "Worms": 0.0
+        }
+      },
+      "2.0": {
+        "evasion_rate": 0.6505,
+        "valid_rate": 1.0,
+        "transfer_to_lgbm": 0.625,
+        "median_bytes_added_when_evaded": 4.0,
+        "median_duration_added_when_evaded": 0.0,
+        "per_category": {
+          "Analysis": 0.815789,
+          "Backdoor": 0.733333,
+          "DoS": 0.640187,
+          "Exploits": 0.362162,
+          "Fuzzers": 0.526316,
+          "Generic": 0.98494,
+          "Reconnaissance": 0.492063,
+          "Shellcode": 0.590909,
+          "Worms": 0.0
+        }
+      },
+      "4.0": {
+        "evasion_rate": 0.6595,
+        "valid_rate": 1.0,
+        "transfer_to_lgbm": 0.636,
+        "median_bytes_added_when_evaded": 7.826923,
+        "median_duration_added_when_evaded": 0.0,
+        "per_category": {
+          "Analysis": 0.815789,
+          "Backdoor": 0.733333,
+          "DoS": 0.649533,
+          "Exploits": 0.387387,
+          "Fuzzers": 0.529825,
+          "Generic": 0.98494,
+          "Reconnaissance": 0.497354,
+          "Shellcode": 0.590909,
+          "Worms": 0.0
+        }
+      }
+    },
+    "random_single_try_mlp": {
+      "0.1": 0.026,
+      "0.25": 0.0495,
+      "0.5": 0.051,
+      "1.0": 0.048,
+      "2.0": 0.052,
+      "4.0": 0.0615
+    },
+    "blackbox_random_search_mlp": {
+      "0.1": 0.0305,
+      "0.25": 0.212,
+      "0.5": 0.291,
+      "1.0": 0.3805,
+      "2.0": 0.4875,
+      "4.0": 0.5395
+    },
+    "blackbox_random_search_lgbm": {
+      "0.1": 0.041435,
+      "0.25": 0.641233,
+      "0.5": 0.667004,
+      "1.0": 0.678626,
+      "2.0": 0.700354,
+      "4.0": 0.71147
+    }
+  },
+  "hopskipjump_lgbm": {
+    "rows": 200,
+    "evasion_rate": 1.0,
+    "valid_rate": 0.235,
+    "evaded_and_valid": 0.235,
+    "median_l2": 1.759155
+  },
+  "importance": {
+    "base_recall": 0.977921,
+    "share_of_importance": {
+      "one_sided": 0.209742,
+      "both_ends": 0.477466,
+      "nobody": 0.312793
+    },
+    "groups": {
+      "dmean": {
+        "recall_drop": 0.0386,
+        "controlled_by": "both_ends"
+      },
+      "service": {
+        "recall_drop": 0.034117,
+        "controlled_by": "nobody"
+      },
+      "dbytes": {
+        "recall_drop": 0.03346,
+        "controlled_by": "both_ends"
+      },
+      "dload": {
+        "recall_drop": 0.016283,
+        "controlled_by": "one_sided"
+      },
+      "sjit": {
+        "recall_drop": 0.014314,
+        "controlled_by": "one_sided"
+      },
+      "ct_srv_dst": {
+        "recall_drop": 0.009524,
+        "controlled_by": "nobody"
+      },
+      "ackdat": {
+        "recall_drop": 0.006326,
+        "controlled_by": "nobody"
+      },
+      "djit": {
+        "recall_drop": 0.004874,
+        "controlled_by": "both_ends"
+      },
+      "dur": {
+        "recall_drop": 0.002234,
+        "controlled_by": "one_sided"
+      },
+      "sbytes": {
+        "recall_drop": 0.000964,
+        "controlled_by": "one_sided"
+      },
+      "ct_src_dport_ltm": {
+        "recall_drop": 0.000433,
+        "controlled_by": "nobody"
+      },
+      "is_sm_ips_ports": {
+        "recall_drop": 0.0,
+        "controlled_by": "nobody"
+      },
+      "ct_ftp_cmd": {
+        "recall_drop": -0.000223,
+        "controlled_by": "nobody"
+      },
+      "is_ftp_login": {
+        "recall_drop": -0.000251,
+        "controlled_by": "nobody"
+      },
+      "ct_flw_http_mthd": {
+        "recall_drop": -0.000614,
+        "controlled_by": "nobody"
+      },
+      "spkts": {
+        "recall_drop": -0.000922,
+        "controlled_by": "one_sided"
+      },
+      "ct_src_ltm": {
+        "recall_drop": -0.001369,
+        "controlled_by": "nobody"
+      },
+      "response_body_len": {
+        "recall_drop": -0.001438,
+        "controlled_by": "nobody"
+      },
+      "proto": {
+        "recall_drop": -0.001522,
+        "controlled_by": "nobody"
+      },
+      "state": {
+        "recall_drop": -0.001606,
+        "controlled_by": "nobody"
+      },
+      "dloss": {
+        "recall_drop": -0.001676,
+        "controlled_by": "nobody"
+      },
+      "trans_depth": {
+        "recall_drop": -0.00176,
+        "controlled_by": "nobody"
+      },
+      "ct_dst_ltm": {
+        "recall_drop": -0.003421,
+        "controlled_by": "nobody"
+      },
+      "dwin": {
+        "recall_drop": -0.004776,
+        "controlled_by": "nobody"
+      },
+      "tcprtt": {
+        "recall_drop": -0.00479,
+        "controlled_by": "nobody"
+      },
+      "sloss": {
+        "recall_drop": -0.004986,
+        "controlled_by": "nobody"
+      },
+      "dpkts": {
+        "recall_drop": -0.005153,
+        "controlled_by": "both_ends"
+      },
+      "dtcpb": {
+        "recall_drop": -0.005195,
+        "controlled_by": "nobody"
+      },
+      "smean": {
+        "recall_drop": -0.005893,
+        "controlled_by": "one_sided"
+      },
+      "ct_dst_sport_ltm": {
+        "recall_drop": -0.006005,
+        "controlled_by": "nobody"
+      },
+      "sload": {
+        "recall_drop": -0.006103,
+        "controlled_by": "one_sided"
+      },
+      "rate": {
+        "recall_drop": -0.006201,
+        "controlled_by": "one_sided"
+      },
+      "dinpkt": {
+        "recall_drop": -0.006843,
+        "controlled_by": "one_sided"
+      },
+      "ct_srv_src": {
+        "recall_drop": -0.006857,
+        "controlled_by": "nobody"
+      },
+      "synack": {
+        "recall_drop": -0.006969,
+        "controlled_by": "nobody"
+      },
+      "sinpkt": {
+        "recall_drop": -0.007164,
+        "controlled_by": "one_sided"
+      },
+      "stcpb": {
+        "recall_drop": -0.007513,
+        "controlled_by": "nobody"
+      },
+      "swin": {
+        "recall_drop": -0.008142,
+        "controlled_by": "nobody"
+      },
+      "ct_dst_src_ltm": {
+        "recall_drop": -0.010488,
+        "controlled_by": "nobody"
+      }
+    }
+  }
+}

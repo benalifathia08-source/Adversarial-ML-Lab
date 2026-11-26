@@ -1,0 +1,95 @@
+{
+  "unsafe_pickle_demo": {
+    "file": "evil_checkpoint.pt",
+    "torch_load_weights_only_false_ran_code": true,
+    "torch_load_weights_only_true": "refused: UnpicklingError",
+    "weights_only_true_ran_code": false,
+    "modelscan_issues": 1,
+    "modelscan_by_severity": {
+      "LOW": 0,
+      "MEDIUM": 0,
+      "HIGH": 0,
+      "CRITICAL": 1
+    },
+    "modelscan_findings": [
+      {
+        "severity": "CRITICAL",
+        "operator": "exec",
+        "module": "__builtin__",
+        "scanner": "modelscan.scanners.PickleUnsafeOpScan"
+      }
+    ]
+  },
+  "public_key_sha256": "3bb1779a9ff01506af0c44a74ffe7779a90d2ec2263457c3ee4518ad0037b14e",
+  "safe_model_scan": {
+    "baseline": 0,
+    "adversarial_training": 0,
+    "robust_features": 0
+  },
+  "gate_policy": {
+    "min_recall": 0.95,
+    "max_fpr": 0.15,
+    "max_evasion_both_ends_b1": 0.15
+  },
+  "released_candidate": "robust_features",
+  "tamper_tests": {
+    "untouched signed model": "loaded (expected)",
+    "one bit flipped in the weights": "refused: hash mismatch for model.safetensors (file was changed after signing)",
+    "preprocessor edited": "refused: hash mismatch for preprocessor.json (file was changed after signing)",
+    "pickle file added next to the model": "refused: files not covered by the signature: ['evil_checkpoint.pt']",
+    "signature removed": "refused: model is not signed (manifest or signature missing)",
+    "re-signed with someone else's key": "refused: signature does not match the manifest"
+  },
+  "gate_decisions": {
+    "baseline": {
+      "accepted": false,
+      "reasons": [
+        "robustness: evasion 0.615 > 0.15 (both-ends attacker, +100% traffic)"
+      ]
+    },
+    "adversarial_training": {
+      "accepted": false,
+      "reasons": [
+        "accuracy: false-positive rate 0.170 > 0.15"
+      ]
+    },
+    "robust_features": {
+      "accepted": true,
+      "reasons": []
+    },
+    "tampered_weights": {
+      "accepted": false,
+      "reasons": [
+        "integrity: hash mismatch for model.safetensors (file was changed after signing)"
+      ]
+    },
+    "extra_pickle": {
+      "accepted": false,
+      "reasons": [
+        "integrity: files not covered by the signature: ['evil_checkpoint.pt']"
+      ]
+    }
+  },
+  "registry": {
+    "baseline": {
+      "registered_version": null,
+      "reasons": [
+        "robustness: evasion 0.615 > 0.15 (both-ends attacker, +100% traffic)"
+      ]
+    },
+    "adversarial_training": {
+      "registered_version": null,
+      "reasons": [
+        "accuracy: false-positive rate 0.170 > 0.15"
+      ]
+    },
+    "robust_features": {
+      "registered_version": 1,
+      "alias": "champion"
+    }
+  },
+  "release": {
+    "path": "models/release",
+    "manifest": "manifest.json"
+  }
+}
