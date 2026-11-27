@@ -135,6 +135,11 @@ def command_shots() -> None:
     tests = run([PY, "-m", "pytest", "-p", "no:cacheprovider"])
     lint = run([PY, "-m", "ruff", "check", "src", "tests"])
     terminal("04_tests", "Tests and lint", [("ruff check src tests", lint), ("pytest -q", tests[-600:])], height=380)
+    demo = run([PY, "-m", "advml.score", "--sample", "4", "--attack"])
+    demo = "\n".join(ln for ln in demo.splitlines() if "agent.hint" not in ln and "Warning" not in ln)
+    terminal("08_score_demo", "Scoring flows with the released model, then trying to evade it", [
+        ("python -m advml.score --sample 4 --attack", demo),
+    ], height=520)
 
 
 def mlflow_shots() -> None:
