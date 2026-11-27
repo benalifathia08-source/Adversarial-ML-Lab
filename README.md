@@ -4,8 +4,41 @@ A PyTorch intrusion detector trained on UNSW-NB15, attacked the way a real adver
 (evasion with traffic that stays valid, training-data poisoning with a backdoor, a malicious model file),
 then hardened and shipped through a signed, scanned, gated model supply chain.
 
-![CI](https://img.shields.io/badge/tests-35%20passing-1a7f37) ![Python](https://img.shields.io/badge/python-3.12-0969da)
-![PyTorch](https://img.shields.io/badge/PyTorch-2.15-cf222e) ![ART](https://img.shields.io/badge/ART-1.20-8250df)
+[![ci](https://github.com/benalifathia08-source/Adversarial-ML-Lab/actions/workflows/ci.yml/badge.svg)](https://github.com/benalifathia08-source/Adversarial-ML-Lab/actions/workflows/ci.yml)
+![Python](https://img.shields.io/badge/python-3.12-0969da) ![PyTorch](https://img.shields.io/badge/PyTorch-2.15-cf222e)
+![ART](https://img.shields.io/badge/ART-1.20-8250df) ![MITRE ATLAS](https://img.shields.io/badge/MITRE%20ATLAS-mapped-59636e)
+
+> **TL;DR**
+> - Textbook attacks fool the detector 100% of the time, but **none of their outputs are real traffic**. An attacker who owns
+>   both ends and fakes replies evades it **61%** of the time; a backdoor needs only **0.1%** poisoned training data.
+> - Standard poisoning detectors failed here; a **5% trusted dataset + data-validation check** cut the backdoor from 90% to 1.7%.
+> - The model only ships if it is **signed, scanned and robust**: the gate rejected 2 of 3 candidates; the released one holds
+>   at **0% evasion** on the untouched test set.
+
+```mermaid
+flowchart LR
+    D[UNSW-NB15<br/>hash-checked] --> T[Train<br/>MLP + LightGBM]
+    T --> A{Attack}
+    A -->|evasion| E[paper FGSM/PGD<br/>vs realistic<br/>constrained PGD]
+    A -->|poisoning| P[label flips<br/>1,337-byte backdoor]
+    A -->|supply chain| S[malicious<br/>pickle file]
+    E --> H[Defend<br/>adversarial training<br/>robust features]
+    P --> C[Defend<br/>trusted core set<br/>+ spike check]
+    S --> G
+    H --> G{Gate<br/>signed + ModelScan<br/>recall, FPR, evasion}
+    C --> G
+    G -->|2 rejected| X[(MLflow: rejected)]
+    G -->|accepted| R[(MLflow registry<br/>champion)]
+    R --> V[verify on load<br/>score flows]
+```
+
+Try it in one command (verifies the signed model, scores real flows, then tries the strongest realistic evasion):
+
+```bash
+python -m advml.score --sample 4 --attack
+```
+
+<img src="docs/screenshots/08_score_demo.png" width="80%" alt="Scoring demo: attacks stay detected after the evasion attempt">
 
 ## Results at a glance
 
@@ -83,7 +116,7 @@ Each defense is attacked again by an attacker who knows it (white-box, 60 steps,
 | Scan | **ModelScan** on every candidate, in the gate and in CI |
 | Integrity and origin | **Ed25519-signed manifest** with the SHA-256 of every file, the dataset hashes and the git commit; [`load_verified`](src/advml/supply_chain.py) refuses anything that does not match |
 | Promotion | gate: signature + scan + recall ≥ 95% + false positives ≤ 15% + evasion ≤ 15% → MLflow registry, alias `champion` |
-| CI | lint, 35 tests, and `python -m advml.verify models/release --gate` on every push; actions pinned to commit SHAs |
+| CI | lint, 40 tests, and `python -m advml.verify models/release --gate` on every push; actions pinned to commit SHAs |
 
 <p>
 <img src="docs/screenshots/01_malicious_pickle_modelscan.png" width="49%" alt="Malicious pickle and ModelScan">
@@ -130,7 +163,7 @@ AML.T0011.000 Unsafe AI Artifacts; mitigations AML.M0003, M0007, M0011, M0013, M
 ```bash
 pip install torch==2.15.0 --index-url https://download.pytorch.org/whl/cpu
 pip install -r requirements.txt && pip install -e .
-pytest                                  # 35 tests, synthetic data, seconds
+pytest                                  # 40 tests, synthetic data, seconds
 python -m advml baseline                # downloads UNSW-NB15 (47 MB, hash-checked), trains MLP + LightGBM
 python -m advml evasion                 # paper vs constrained attacks, importance
 python -m advml poisoning               # label flipping, backdoor, five detectors
@@ -139,6 +172,7 @@ python -m advml supply_chain            # malicious pickle demo, signing, tamper
 python -m advml final                   # official test set, once
 python -m advml.figures                 # README figures from results/*.json
 python -m advml.verify models/release --gate
+python -m advml.score --sample 4 --attack   # score flows with the verified release
 mlflow ui --backend-store-uri sqlite:///mlflow.db
 ```
 
@@ -157,6 +191,7 @@ src/advml/
   poison.py        label flipping, backdoor, trusted core set, spike check, ART activation clustering
   defenses.py      adversarial training, robust feature mask
   supply_chain.py  malicious checkpoint demo, ModelScan, Ed25519 manifests, verified loading, gate
+  verify.py, score.py  command lines: verify a model folder; score flows with the verified release
   store.py         safetensors + JSON persistence
   stages/          one module per milestone, each writes results/<stage>.json
 results/           metrics (JSON) and figures
